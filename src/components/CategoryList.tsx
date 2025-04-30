@@ -17,7 +17,10 @@ export const CategoryList = ({ onSelectCategory, selectedCategory }: Props) => {
     useEffect(() => {
         axios
             .get<Category[]>("http://localhost:8080/api/categories")
-            .then((res) => setCategories(res.data))
+            .then((res) => {
+                console.log("Svar från backend: ", res.data);
+                setCategories(res.data);
+            }) 
             .catch((err) => console.error("Fel vid hämtning av kategorier: ", err));
     }, []);
 
@@ -25,7 +28,7 @@ export const CategoryList = ({ onSelectCategory, selectedCategory }: Props) => {
         <div className="p-4 border rounded-md bg-white shadow-md">
             <h2 className="text-lg font-semibold mb-2">Tillagda kategorier</h2>
 
-            {categories.length ===0 ? (
+            {categories.length === 0 ? (
                 <p className="text-gray-500">Lägg till en kategori</p>
             ) : (
                 <div className="flex flex-wrap gap-2">
