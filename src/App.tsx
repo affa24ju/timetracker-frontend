@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CategoryList } from './components/CategoryList'
+import { CategoryForm } from './components/CategoryForm';
 //import { Stats } from './components/Stats'
 import './App.css'
 
@@ -14,7 +15,7 @@ function App() {
 
   const refreshCategories = () => {
     setRefreshTrigger(prev => prev + 1);
-  }
+  };
   
 
   return (
@@ -24,7 +25,7 @@ function App() {
       {/*<h2 className="text-3xl font-bold text-red-500">Testar Tailwind?</h2>*/}
 
       <div className="max-w-3xl mx-auto space-y-4">
-        {/*<CategoryForm onCategoryCreated={refreshCategories} */}
+        <CategoryForm onCategoryCreated={refreshCategories} />
         <CategoryList
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
