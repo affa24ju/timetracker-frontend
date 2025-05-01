@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CategoryList } from './components/CategoryList'
 import { CategoryForm } from './components/CategoryForm';
+import { CategoryActions } from './components/CategoriActions';
 //import { Stats } from './components/Stats'
 import './App.css'
 
@@ -31,6 +32,12 @@ function App() {
           onSelectCategory={setSelectedCategory}
           refreshTrigger={refreshTrigger}
         />
+
+        {selectedCategory && (
+          <>
+            <CategoryActions category={selectedCategory} />
+          </>
+        )}
       {/*Här skriver sen CategoryAction, CheckInOut & Stats*/}
 
       </div>
