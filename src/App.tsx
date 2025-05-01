@@ -36,6 +36,7 @@ function App() {
         {selectedCategory && (
           <>
             <CategoryActions category={selectedCategory} />
+            {/*<CheckInOut category={selectedCategory} /> */}
           </>
         )}
       {/*Här skriver sen CategoryAction, CheckInOut & Stats*/}
