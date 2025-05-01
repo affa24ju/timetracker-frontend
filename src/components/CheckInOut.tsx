@@ -11,4 +11,18 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
             categoryId: selectedCategory.id,
         });
     };
+
+    const handleCheckOut = () => {
+        if (!selectedCategory) return;
+        axios.post("http://localhost:8080/api/tasks/checkout", {
+            categoryId: selectedCategory.id,
+        });
+    };
+
+    return (
+        <div className="mt-4 flex gap-4">
+            
+
+        </div>
+    )
 }
