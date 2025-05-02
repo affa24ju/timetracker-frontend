@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { CategoryList } from './components/CategoryList'
 import { CategoryForm } from './components/CategoryForm';
 import { CategoryActions } from './components/CategoriActions';
+import { CheckInOut } from './components/CheckInOut';
 //import { Stats } from './components/Stats'
 import './App.css'
 
@@ -36,10 +37,10 @@ function App() {
         {selectedCategory && (
           <>
             <CategoryActions category={selectedCategory} />
-            {/*<CheckInOut category={selectedCategory} /> */}
+            <CheckInOut selectedCategory={selectedCategory} /> 
           </>
         )}
-      {/*Här skriver sen CategoryAction, CheckInOut & Stats*/}
+      {/*Här skriver sen Stats*/}
 
       </div>
     </div>
