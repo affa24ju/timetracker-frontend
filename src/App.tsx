@@ -19,7 +19,6 @@ function App() {
     setRefreshTrigger(prev => prev + 1);
   };
   
-
   return (
     <div className="min-h-screen bg-gray-100 p-6 space-y-6">
       <h1 className="text-2xl font-bold text-center text-indigo-700">Time tracker</h1>
@@ -36,7 +35,9 @@ function App() {
 
         {selectedCategory && (
           <>
-            <CategoryActions category={selectedCategory} />
+            <CategoryActions 
+              category={selectedCategory} 
+              onCategoryUpdated={refreshCategories} />
             <CheckInOut selectedCategory={selectedCategory} /> 
           </>
         )}
