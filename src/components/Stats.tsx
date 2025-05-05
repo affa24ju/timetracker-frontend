@@ -3,7 +3,7 @@ import axios from "axios";
 
 interface Stat {
     categoryName: string;
-    totalMinutes: number;
+    minutes: number;
 }
 
 export const Stats = () => {
@@ -34,7 +34,9 @@ export const Stats = () => {
                         <li key={index} className="flex justify-between">
                             <span>{stat.categoryName}</span>
                             <span className="font-semibold">
-                                {stat.totalMinutes != null ? (stat.totalMinutes / 60).toFixed(1) + " h" : "0 h"}
+                                {stat.minutes != null 
+                                    ? `${Math.floor(stat.minutes / 60)}h ${stat.minutes % 60}min`
+                                    : "0h 0min"}
                             </span>
                         </li>
                     ))}
