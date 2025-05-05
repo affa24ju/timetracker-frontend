@@ -12,7 +12,10 @@ export const Stats = () => {
 
     useEffect(() => {
         axios.get<Stat[]>("http://localhost:8080/api/tasks/stats/week")
-            .then((res) => setStats(res.data))
+            .then((res) => {
+                console.log("Statistik från backend: ", res.data);
+                setStats(res.data);                
+            })
             .catch((err) => console.error("Fel vid hämtning av statistik: ", err))
             .finally(() => setLoading(false));
     }, []);
@@ -30,7 +33,9 @@ export const Stats = () => {
                     {stats.map((stat, index) => (
                         <li key={index} className="flex justify-between">
                             <span>{stat.categoryName}</span>
-                            <span className="font-semibold">{(stat.totalMinutes / 60).toFixed(1)} h</span>
+                            <span className="font-semibold">
+                                {stat.totalMinutes != null ? (stat.totalMinutes / 60).toFixed(1) + " h" : "0 h"}
+                            </span>
                         </li>
                     ))}
                 </ul>
