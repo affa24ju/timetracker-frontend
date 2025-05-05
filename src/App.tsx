@@ -3,7 +3,7 @@ import { CategoryList } from './components/CategoryList'
 import { CategoryForm } from './components/CategoryForm';
 import { CategoryActions } from './components/CategoriActions';
 import { CheckInOut } from './components/CheckInOut';
-//import { Stats } from './components/Stats'
+import { Stats } from './components/Stats'
 import './App.css'
 
 interface Category {
@@ -41,7 +41,7 @@ function App() {
             <CheckInOut selectedCategory={selectedCategory} /> 
           </>
         )}
-      {/*Här skriver sen Stats*/}
+      <Stats />
 
       </div>
     </div>
