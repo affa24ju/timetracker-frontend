@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import { api } from "../api";
+//import axios from "axios";
 
 interface Props {
     selectedCategory: { id: string; name: string} | null;
@@ -27,7 +28,7 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
         };        
         
         try {
-            const res = await axios.post<Task>("http://localhost:8080/api/tasks/checkin", newTask);
+            const res = await api.post<Task>("/tasks/checkin", newTask);
             setActiveTask(res.data);
         } catch (err) {
             console.error("Fel vid Checka in: ", err);            
@@ -44,7 +45,7 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
                 endTime: new Date().toISOString(),
             };
 
-            await axios.post(`http://localhost:8080/api/tasks/checkout/${activeTask.id}`, endTask);
+            await api.post(`/tasks/checkout/${activeTask.id}`, endTask);
             setActiveTask(null);
         } catch (err) {
             console.log("Fel vid checka ut: ", err);

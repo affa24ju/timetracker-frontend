@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import { api } from "../api";
+//import axios from "axios";
 
 interface Props {
     onCategoryCreated: () => void;
@@ -13,7 +14,7 @@ export const CategoryForm = ({ onCategoryCreated }: Props) => {
         if (!name.trim()) return;
 
         try {
-            await axios.post("http://localhost:8080/api/categories", { name });
+            await api.post("/categories", { name });
             setName("");
             onCategoryCreated(); //uppdaterar listan i förälder
         } catch (err) {

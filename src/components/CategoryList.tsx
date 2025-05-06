@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../api";
+//import axios from "axios";
 
 interface Category {
     id: string;
@@ -16,8 +17,9 @@ export const CategoryList = ({ onSelectCategory, selectedCategory, refreshTrigge
     const [categories, setCategories] = useState<Category[]>([]);
    
     useEffect(() => {
-        axios
-            .get<Category[]>("http://localhost:8080/api/categories")
+        //axios
+        api
+            .get<Category[]>("/categories")
             .then((res) => setCategories(res.data))
             .catch((err) => console.error("Fel vid hämtning av kategorier: ", err));
 

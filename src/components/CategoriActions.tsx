@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import { api } from "../api";
+//import axios from "axios";
 
 interface Category {
     id: string;
@@ -17,7 +18,7 @@ export const CategoryActions = ({ category, onCategoryUpdated }: Props) => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:8080/api/categories/${category.id}`, {
+            await api.put(`/api/categories/${category.id}`, {
                 name: newName,
             });
             setIsEditing(false);
