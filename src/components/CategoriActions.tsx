@@ -18,7 +18,7 @@ export const CategoryActions = ({ category, onCategoryUpdated }: Props) => {
 
     const handleUpdate = async () => {
         try {
-            await api.put(`/api/categories/${category.id}`, {
+            await api.put(`/categories/${category.id}`, {
                 name: newName,
             });
             setIsEditing(false);
