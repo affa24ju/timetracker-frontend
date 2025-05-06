@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../api";
+//import axios from "axios";
 
 interface Stat {
     categoryName: string;
@@ -11,7 +12,7 @@ export const Stats = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get<Stat[]>("http://localhost:8080/api/tasks/stats/week")
+        api.get<Stat[]>("/tasks/stats/week")
             .then((res) => {
                 console.log("Statistik från backend: ", res.data);
                 setStats(res.data);                
