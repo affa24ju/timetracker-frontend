@@ -4,6 +4,7 @@ import { CategoryForm } from './components/CategoryForm';
 import { CategoryActions } from './components/CategoriActions';
 import { CheckInOut } from './components/CheckInOut';
 import { Stats } from './components/Stats'
+import { WeeklyStatsSelector } from './components/WeeklyStatsSelector';
 import './App.css'
 
 interface Category {
@@ -42,6 +43,11 @@ function App() {
           </>
         )}
       <Stats />
+
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Tidrapportering</h1>
+        <WeeklyStatsSelector />
+      </div>
 
       </div>
     </div>
