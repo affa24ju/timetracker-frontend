@@ -33,6 +33,8 @@ export const CategoryActions = ({ category, onCategoryUpdated }: Props) => {
             <p className="font-medium">
                 Vald kategori: {" "} 
                 <span className="font-bold">{category.name}</span>
+                <br />
+                <span className="text-sm text-gray-500">Blev det fel? Här kan du ändra namnet på kategorin.</span>            
             </p>
 
             {isEditing? (

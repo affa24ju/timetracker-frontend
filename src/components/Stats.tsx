@@ -23,21 +23,26 @@ export const Stats = () => {
 
     return (
         <div className="p-4 bg-white rounded shadow-md">
-            <h3 className="text-lg font-semibold mb-4">Veckostatistik</h3>
+            <h3 className="text-lg font-semibold mb-4">Statistik för nuvarande vecka</h3>
 
             {loading ? (
                 <p>Laddar statistik...</p>
             ) : stats.length === 0 ? (
-                <p className="text-grary-500">Ingen data tillgänglig</p>
+                <div>
+                    <p className="text-gray-600">
+                        Det finns ingen statistik för nuvarande vecka.
+                    </p>
+                    <p className="text-sm text-gray-500 mt-2">
+                        Vänligen välj en annan vecka nedan om du vill se tidigare statistik.
+                    </p>
+                </div>
             ) : (
                 <ul className="space-y-2">
                     {stats.map((stat, index) => (
                         <li key={index} className="flex justify-between">
                             <span>{stat.categoryName}</span>
                             <span className="font-semibold">
-                                {stat.minutes != null 
-                                    ? `${Math.floor(stat.minutes / 60)}h ${stat.minutes % 60}min`
-                                    : "0h 0min"}
+                                {Math.floor(stat.minutes / 60)}h {stat.minutes % 60}min
                             </span>
                         </li>
                     ))}
