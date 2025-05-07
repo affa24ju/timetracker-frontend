@@ -55,7 +55,7 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
 
     return (
         <div className="p-4 bg-white rounded shadow-md">
-            <h3 className="text-lg font-semibold mb-2">Checka in / ut</h3>
+            <h3 className="text-lg font-semibold mb-2">{selectedCategory?.name}: Checka in / ut</h3>
 
             {activeTask ? (
                 <div className="space-y-2">

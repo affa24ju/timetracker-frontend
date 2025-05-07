@@ -28,6 +28,10 @@ export const CategoryList = ({ onSelectCategory, selectedCategory, refreshTrigge
     return (
         <div className="bg-white p-4 rounded shadow">
             <h2 className="text-lg font-semibold mb-2">Tillagda kategorier</h2>
+            <div className="text-sm text-gray-500">
+                <p>Välj en kategori för att kunna redigera den, eller checka in/ ut.</p>
+                <br />
+            </div>
 
             <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
