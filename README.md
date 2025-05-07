@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+# TimeTracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Det här är frontend-delen av TimeTracker – en webbapplikation där användaren kan logga och se statistik över hur mycket tid som läggs på olika arbetsuppgifter under veckan.
 
-Currently, two official plugins are available:
+## 🛠️ Tekniker som används
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Axios](https://axios-http.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-## Expanding the ESLint configuration
+## 🚀 Funktioner
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Lägga till, redigera och ta bort arbetskategorier
+- Checka in och ut från arbetsuppgifter
+- Se statistik över hur mycket tid som lagts på varje kategori under en vecka
+- Visa statistik för nuvarande vecka och tidigare veckor (med veckoväljare)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📦 Kom igång
+
+### Klona projektet
+
+  ```bash
+    git clone https://github.com/ditt-användarnamn/timetracker-frontend.git
+    cd timetracker-frontend
+  ```
+
+### Installera dependencies 
+
+```bash
+  npm install
+  npm install axios
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Backend
+  Backend är en Spring Boot applikation som hanterar API-anrop och datalagring i MongoDB Atlas.
+  [Backend-repo:] (https://github.com/affa24ju/timeTrackerApi.git)
+  Backend behövs att köra igång först för att få funka frontend. 
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Köra programmet
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+  npm run dev
 ```
+Applikationen körs på: http://localhost:5173
+
+
