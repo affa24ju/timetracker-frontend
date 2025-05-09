@@ -24,7 +24,7 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
         //console.log("Checkar in: ", selectedCategory.name);
         const newTask: Task = {
             categoryId: selectedCategory.id,
-            startTime: new Date().toISOString(),
+            startTime: new Date().toISOString(), //Tiden sparar i UTC format
         };        
         
         try {
@@ -42,7 +42,7 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
             const endTask = {
                 categoryId: selectedCategory?.id,
                 activeTask: activeTask,
-                endTime: new Date().toISOString(),
+                endTime: new Date().toISOString(), //Tiden sparas i UTC format
             };
 
             await api.post(`/tasks/checkout/${activeTask.id}`, endTask);
@@ -53,17 +53,19 @@ export const CheckInOut = ({ selectedCategory }: Props) => {
         }
     };
 
+    //Visar starttiden för aktiv uppgift i svensk lokal tid (timezone: "Europe/Stockholm")
     return (
         <div className="p-4 bg-white rounded shadow-md">
             <h3 className="text-lg font-semibold mb-2">{selectedCategory?.name}: Checka in / ut</h3>
-
+            
             {activeTask ? (
                 <div className="space-y-2">
                     <p className="text-sm text-gray-600">
                         Aktiv uppgift: {selectedCategory?.name} (started {new Date(activeTask.startTime).toLocaleTimeString("sv-SE", {
                             hour: "2-digit",
                             minute: "2-digit",
-                            second: "2-digit"
+                            second: "2-digit",
+                            timeZone: "Europe/Stockholm"
                         })})
                     </p>
                     <button 
